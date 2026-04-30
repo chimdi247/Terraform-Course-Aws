@@ -2,7 +2,7 @@
 variable "region" {
   description = "AWS region"
   type        = string
-  default     = "us-east-1"
+  default     = "eu-west-2"
 }
 
 variable "environment" {
@@ -27,7 +27,7 @@ variable "vpc_cidr" {
 variable "availability_zones" {
   description = "List of availability zones"
   type        = list(string)
-  default     = ["us-east-1a", "us-east-1b"]
+  default     = ["eu-west-2a", "eu-west-2b"]
 }
 
 variable "public_subnet_cidrs" {
@@ -76,14 +76,14 @@ variable "allowed_ssh_cidr" {
 variable "bastion_instance_type" {
   description = "Bastion instance type"
   type        = string
-  default     = "t2.micro"
+  default     = "t3.small"
 }
 
 # Frontend ASG
 variable "frontend_instance_type" {
   description = "Frontend instance type"
   type        = string
-  default     = "t3.micro"
+  default     = "t3.small"
 }
 
 variable "frontend_min_size" {
@@ -108,7 +108,7 @@ variable "frontend_desired_capacity" {
 variable "backend_instance_type" {
   description = "Backend instance type"
   type        = string
-  default     = "t3.micro"
+  default     = "t3.small"
 }
 
 variable "backend_min_size" {
@@ -133,7 +133,7 @@ variable "backend_desired_capacity" {
 variable "db_instance_class" {
   description = "RDS instance class"
   type        = string
-  default     = "db.t3.micro"
+  default     = "db.t4g.micro"
 }
 
 variable "db_allocated_storage" {
@@ -182,13 +182,13 @@ variable "db_skip_final_snapshot" {
 variable "frontend_docker_image" {
   description = "Frontend Docker image (e.g., username/frontend:latest)"
   type        = string
-  default     = "your-dockerhub-username/goal-tracker-frontend:latest"
+  default     = "chimdi247/goal-tracker-frontend:latest"
 }
 
 variable "backend_docker_image" {
   description = "Backend Docker image (e.g., username/backend:latest)"
   type        = string
-  default     = "your-dockerhub-username/goal-tracker-backend:latest"
+  default     = "chimdi247/goal-tracker-backend:latest"
 }
 
 variable "dockerhub_username" {

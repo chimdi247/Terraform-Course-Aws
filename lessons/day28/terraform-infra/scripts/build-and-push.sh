@@ -91,7 +91,7 @@ else
         echo "Please provide your Docker Hub username or image names:"
         echo ""
         echo "Option 1: Run with username"
-        echo "  $0 your-dockerhub-username"
+        echo "  $0 chimdi247"
         echo ""
         echo "Option 2: Run with full image names"
         echo "  $0 username/frontend:latest username/backend:latest"
@@ -107,10 +107,10 @@ print_success "Frontend image: $FRONTEND_IMAGE"
 print_success "Backend image: $BACKEND_IMAGE"
 
 # Get AWS region (optional, for ASG refresh)
-REGION="us-east-1"
+REGION="eu-west-2"
 if [ -d "$PROJECT_ROOT/terraform-infra/environments/dev" ]; then
     cd "$PROJECT_ROOT/terraform-infra/environments/dev"
-    REGION=$(terraform output -raw region 2>/dev/null || echo "us-east-1")
+    REGION=$(terraform output -raw region 2>/dev/null || echo "eu-west-2")
 fi
 
 # Login to Docker Hub
