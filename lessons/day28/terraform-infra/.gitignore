@@ -1,6 +1,6 @@
 *.tfstate
 *.tfstate.*
-*.tfvars
+!*.tfvars
 !*.tfvars.example
 .terraform/
 .terraform.lock.hcl
