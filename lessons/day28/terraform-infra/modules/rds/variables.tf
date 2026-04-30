@@ -69,7 +69,7 @@ variable "availability_zone" {
 variable "backup_retention_period" {
   description = "Backup retention period in days"
   type        = number
-  default     = 2
+  default     = 0
 }
 
 variable "skip_final_snapshot" {

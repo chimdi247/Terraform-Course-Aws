@@ -169,7 +169,7 @@ variable "db_multi_az" {
 variable "db_backup_retention" {
   description = "RDS backup retention period in days"
   type        = number
-  default     = 2
+  default     = 0
 }
 
 variable "db_skip_final_snapshot" {

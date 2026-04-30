@@ -40,7 +40,7 @@ db_engine_version       = "15.5"
 db_name                 = "goalsdb"
 db_username             = "postgres"
 db_multi_az             = false  # true for high availability
-db_backup_retention     = 2
+db_backup_retention     = 0
 db_skip_final_snapshot  = true   # false for production
 
 # Docker Hub Configuration
