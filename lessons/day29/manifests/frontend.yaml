@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: itsbaivab/frontend
+          image: chimdi247/goal-tracker-frontend
           ports:
             - containerPort: 3000
           env:

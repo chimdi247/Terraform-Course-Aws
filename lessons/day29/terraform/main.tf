@@ -39,7 +39,7 @@ module "eks" {
   version = "~> 20.0"
 
   cluster_name    = var.cluster_name
-  cluster_version = "1.30"
+  cluster_version = "1.34"
 
   cluster_endpoint_public_access = true
 
@@ -49,7 +49,7 @@ module "eks" {
 
   eks_managed_node_groups = {
     initial = {
-      instance_types = ["t3.medium"]
+      instance_types = ["c7i-flex.large"]
 
       min_size     = 2
       max_size     = 3
@@ -117,8 +117,8 @@ data "http" "argocd_manifest" {
 }
 
 resource "kubectl_manifest" "argocd" {
-  for_each = { for doc in split("---", data.http.argocd_manifest.response_body) : 
-    sha256(doc) => doc if trimspace(doc) != "" 
+  for_each = { for doc in split("---", data.http.argocd_manifest.response_body) :
+    sha256(doc) => doc if trimspace(doc) != ""
   }
 
   yaml_body = each.value
@@ -133,10 +133,10 @@ resource "null_resource" "patch_argocd_service" {
     command = <<-EOT
       # Update kubeconfig first
       aws eks update-kubeconfig --region ${var.region} --name ${module.eks.cluster_name}
-      
+
       # Wait a bit for service to be created
       sleep 10
-      
+
       # Patch service to LoadBalancer (ignore errors if already patched)
       kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}' || true
     EOT

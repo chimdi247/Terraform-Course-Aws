@@ -14,9 +14,9 @@ commonAnnotations:
   app.kubernetes.io/version: "1.0"
 
 images:
-  - name: itsbaivab/frontend
-    newTag: v2
-  - name: itsbaivab/backend
+  - name: chimdi247/goal-tracker-frontend
+    newTag: latest
+  - name: chimdi247/goal-tracker-backend
     newTag: latest
   - name: postgres
     newTag: "15"
