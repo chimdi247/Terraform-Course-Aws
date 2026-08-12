@@ -54,7 +54,7 @@ variable "min_size" {
 variable "max_size" {
   description = "Maximum number of instances"
   type        = number
-  default     = 6
+  default     = 3
 }
 
 variable "desired_capacity" {
