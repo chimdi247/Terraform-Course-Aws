@@ -14,11 +14,11 @@ terraform {
 
   # Uncomment to use S3 backend for remote state
   # backend "s3" {
-  #   bucket         = "your-terraform-state-bucket"
+  #   bucket         = "chimdi-terraform-state-bucket"
   #   key            = "goal-tracker/dev/terraform.tfstate"
   #   region         = "eu-west-2"
   #   encrypt        = true
-  #   dynamodb_table = "terraform-state-lock"
+  #   use_lockfile = true
   # }
 }
 

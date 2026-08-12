@@ -1,4 +1,5 @@
 # Application Load Balancer
+
 resource "aws_lb" "main" {
   name               = "${var.environment}-${var.project}-${var.name_prefix}alb"
   internal           = var.internal
